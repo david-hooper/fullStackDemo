@@ -1,0 +1,1 @@
+INSERT INTO student (name, github_Name, email) VALUES ('John Smith', 'SMITTY', 'name@email.com');
