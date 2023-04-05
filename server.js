@@ -12,14 +12,16 @@ const client = new Client(process.env.DATABASE_URL);
 client.connect();
 //console.log(client);
 app.use(express.json());
-app.use(express.static("public"))
+app.use(express.static("client"))
 app.get('/', (req, res) => {
     res.json({"hello":"world"})
 })
 app.get('/students', (req, res) => {
-    // sql`SELECT * FROM student;`.then((result)=> {
-    //     //res.json(result);
-    // })
+    client.query(`SELECT * FROM student`, (err, response) => {
+        console.log(err ? err : response.rows)
+        res.json(response.rows)
+        client.end;
+    })
 })
 
 app.listen(port, (error) => {
