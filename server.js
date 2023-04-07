@@ -16,7 +16,7 @@ app.use(express.static("client"))
 app.get('/', (req, res) => {
     res.json({"hello":"world"})
 })
-app.get('/students', (req, res) => {
+app.get('/api/students', (req, res) => {
     client.query(`SELECT * FROM student`, (err, response) => {
         console.log(err ? err : response.rows)
         res.json(response.rows)
