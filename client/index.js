@@ -5,5 +5,5 @@ fetch(`/api/students`)
 .then(students => (){
       students.forEach(student => {
           containerEl.innerHTML += `<h2>${student.name}</h2>`;
-      }
+      })
  })
