@@ -12,8 +12,8 @@ const client = new Client(process.env.DATABASE_URL);
 client.connect();
 //console.log(client);
 app.use(express.json());
-app.use(express.static("client"))
-app.get('/', (req, res) => {
+//app.use(express.static("client"))
+app.get('/test', (req, res) => {
     res.json({"hello":"world"})
 })
 app.get('/api/students', (req, res) => {
